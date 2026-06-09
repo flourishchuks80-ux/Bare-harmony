@@ -78,19 +78,6 @@ export default function LastMinuteDeals({
 
         {/* Carousel Container */}
         <div className="relative">
-          {/* Dismiss Overlay Control (Centered on the top boundary of the carousel) */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              onDismiss();
-            }}
-            className="absolute -top-5 left-1/2 -translate-x-1/2 w-[40px] h-[40px] rounded-full bg-[rgba(0,0,0,0.6)] hover:bg-[#1a1a1a] text-white flex items-center justify-center cursor-pointer transition shadow-[0_4px_10px_rgba(0,0,0,0.15)] z-20"
-            title="Dismiss section"
-            aria-label="Dismiss section"
-          >
-            <X size={18} />
-          </button>
-
           {/* Hotel Grid Carousel */}
           <div
             ref={containerRef}

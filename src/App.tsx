@@ -827,9 +827,14 @@ export default function App() {
               <a href="#" className="hover:text-white block transition">Mobile Scanner App</a>
             </div>
             <div className="space-y-2">
-              <span className="font-display font-black text-white text-base tracking-tight block">
-                Bare-harmony<span className="text-[#ffb700] font-light">booking</span>
-              </span>
+              <div className="flex items-baseline gap-1.5 focus:outline-none select-none">
+                <span className="font-display font-black text-lg tracking-tight text-white flex items-center gap-1">
+                  <span className="text-[#ffb700] font-light">Bare</span>
+                </span>
+                <span className="bg-[#ffb700] text-[#003580] font-black text-[8px] px-1 rounded uppercase tracking-wider">
+                  Harmony
+                </span>
+              </div>
               <p className="text-[10px] text-blue-200/70 leading-relaxed mt-1">
                 Combining high-tier contemporary boutique comfort with classic Swiss architectural heritage to deliver peaceful, safe experiences.
               </p>

@@ -1,4 +1,4 @@
-import { Sparkles, Calendar, Receipt, Briefcase, HelpCircle, Heart, Menu, X, Landmark, User, Settings, Bed, Plane, Car, Compass } from 'lucide-react';
+import { Sparkles, Briefcase, HelpCircle, Heart } from 'lucide-react';
 import { Booking } from '../types';
 
 interface HeaderProps {
@@ -117,26 +117,6 @@ export default function Header({
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Sleek Sub-navigation Categories aligned with design guidelines */}
-      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 pb-3.5 pt-0.5 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
-        <button className="flex items-center gap-2 px-4 py-2 text-xs font-bold bg-white/10 border border-white/20 rounded-full text-white cursor-pointer select-none transition">
-          <Bed size={14} className="stroke-[2.5]" />
-          <span>Stays</span>
-        </button>
-        <button className="flex items-center gap-2 px-4 py-2 text-xs font-medium text-blue-100 hover:bg-white/5 hover:text-white rounded-full transition cursor-pointer select-none">
-          <Plane size={14} />
-          <span>Flights</span>
-        </button>
-        <button className="flex items-center gap-2 px-4 py-2 text-xs font-medium text-blue-100 hover:bg-white/5 hover:text-white rounded-full transition cursor-pointer select-none">
-          <Car size={14} />
-          <span>Car rentals</span>
-        </button>
-        <button className="flex items-center gap-2 px-4 py-2 text-xs font-medium text-blue-100 hover:bg-white/5 hover:text-white rounded-full transition cursor-pointer select-none">
-          <Compass size={14} />
-          <span>Attractions</span>
-        </button>
       </div>
     </header>
   );
