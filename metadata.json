@@ -1,0 +1,6 @@
+{
+  "name": "Bare-harmony",
+  "description": "An elegant boutique and luxury hotel booking platform with deep search capabilities, real-time filters, calendar dates, and persistent booking management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
