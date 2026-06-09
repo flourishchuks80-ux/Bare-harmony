@@ -16,7 +16,7 @@ const TRENDING_DESTINATIONS: Destination[] = [
     cityOnly: 'Sydney',
     country: 'Australia',
     avgPriceUSD: 240,
-    image: '/src/assets/images/park_hyatt_sydney_1781023936388.png'
+    image: '/assets/images/park_hyatt_sydney_1781023936388.png'
   },
   {
     id: 'barcelona',
@@ -24,7 +24,7 @@ const TRENDING_DESTINATIONS: Destination[] = [
     cityOnly: 'Barcelona',
     country: 'Spain',
     avgPriceUSD: 200,
-    image: '/src/assets/images/w_barcelona_1781023902244.png'
+    image: '/assets/images/w_barcelona_1781023902244.png'
   },
   {
     id: 'melbourne',
@@ -32,7 +32,7 @@ const TRENDING_DESTINATIONS: Destination[] = [
     cityOnly: 'Melbourne',
     country: 'Australia',
     avgPriceUSD: 180,
-    image: '/src/assets/images/melbourne_hotel_1781024644113.png'
+    image: '/assets/images/melbourne_hotel_1781024644113.png'
   },
   {
     id: 'madrid',

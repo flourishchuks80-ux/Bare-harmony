@@ -15,7 +15,7 @@ export const HOTELS: Hotel[] = [
     stars: 5,
     basePrice: 380.00,
     images: [
-      '/src/assets/images/majestic_barcelona_1781024498943.png',
+      '/assets/images/majestic_barcelona_1781024498943.png',
       'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80'
     ],
     amenities: ['Rooftop Pool', 'Michelin Star Dining', 'Spa & Wellness', 'Luxury Suites', 'Passeig de Gràcia Views', 'Free Wi-Fi'],
@@ -34,7 +34,7 @@ export const HOTELS: Hotel[] = [
     stars: 5,
     basePrice: 420.00,
     images: [
-      '/src/assets/images/alfonso_xiii_1781023953287.png',
+      '/assets/images/alfonso_xiii_1781023953287.png',
       'https://images.unsplash.com/photo-1555881400-7db40f66578a?auto=format&fit=crop&w=800&q=80'
     ],
     amenities: ['Moorish Courtyard', 'Outdoor Pool', 'Royal Gardens', 'Pillow bar', 'Tapas Conservatory', 'Valet Parking'],
@@ -72,7 +72,7 @@ export const HOTELS: Hotel[] = [
     stars: 4,
     basePrice: 220.00,
     images: [
-      '/src/assets/images/only_you_madrid_1781024265061.png',
+      '/assets/images/only_you_madrid_1781024265061.png',
       'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80'
     ],
     amenities: ['Lázaro Designer Rooms', '24h Breakfast Lounge', 'Craft Cocktail Club', 'Chueca District Walkway', 'Premium Espresso', 'Bespoke Beds'],
@@ -148,7 +148,7 @@ export const HOTELS: Hotel[] = [
     stars: 5,
     basePrice: 450.00,
     images: [
-      '/src/assets/images/w_barcelona_1781023902244.png',
+      '/assets/images/w_barcelona_1781023902244.png',
       'https://images.unsplash.com/photo-1502005229762-fc1b2381f0db?auto=format&fit=crop&w=800&q=80'
     ],
     amenities: ['Beachfront access', 'Beach Club Infinity Pool', 'Rooftop Sky Lounge', 'Panoramic coastal view', 'Modern gym', 'Designer spa'],
@@ -207,7 +207,7 @@ export const HOTELS: Hotel[] = [
     stars: 5,
     basePrice: 920.00,
     images: [
-      '/src/assets/images/park_hyatt_sydney_1781023936388.png',
+      '/assets/images/park_hyatt_sydney_1781023936388.png',
       'https://images.unsplash.com/photo-1524820197278-540916411e20?auto=format&fit=crop&w=800&q=80'
     ],
     amenities: ['Opera House Overlooks', 'Heated Rooftop Pool', 'Bespoke Butler Service', 'Harbour Balconies', 'Spa Sanctuary', 'Historic Rocks walkway'],
@@ -245,7 +245,7 @@ export const HOTELS: Hotel[] = [
     stars: 5,
     basePrice: 340.00,
     images: [
-      '/src/assets/images/calile_brisbane_1781023919791.png',
+      '/assets/images/calile_brisbane_1781023919791.png',
       'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80'
     ],
     amenities: ['Pool Cabanas', 'James Street Boutiques', 'Hellenic Tavern', 'Pastel Architectural Design', 'Day Wellness Spa', 'Private balconies'],
