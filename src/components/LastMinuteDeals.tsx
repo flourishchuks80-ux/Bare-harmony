@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { ChevronRight, X, Sparkles } from 'lucide-react';
+import { X, Sparkles } from 'lucide-react';
 import { Hotel } from '../types';
 
 interface LastMinuteDealsProps {
@@ -36,13 +36,6 @@ export default function LastMinuteDeals({
       case 'USD':
       default:
         return `US$${usdPrice.toFixed(2)}`;
-    }
-  };
-
-  const handleScrollRight = () => {
-    if (containerRef.current) {
-      const scrollAmount = 300; // width of a card plus gap
-      containerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
 
@@ -167,16 +160,6 @@ export default function LastMinuteDeals({
               );
             })}
           </div>
-
-          {/* Navigation Arrows: Next Button absolutely positioned on the right */}
-          <button
-            onClick={handleScrollRight}
-            className="hidden lg:flex absolute -right-[20px] top-1/2 -translate-y-1/2 w-[40px] h-[40px] rounded-full bg-white border border-[#e7e7e7] shadow-[0_4px_10px_rgba(0,0,0,0.1)] items-center justify-center text-[#1a1a1a] hover:bg-slate-50 transition cursor-pointer z-10"
-            title="Next hotels"
-            aria-label="Next hotels"
-          >
-            <ChevronRight size={20} className="text-[#1a1a1a]" />
-          </button>
         </div>
 
       </div>

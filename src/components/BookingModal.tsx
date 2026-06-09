@@ -86,7 +86,7 @@ export default function BookingModal({
 🛌 Suite Option: ${booking.roomType}
 🗓️ Dates: ${booking.checkIn} to ${booking.checkOut} (${nights} Night${nights > 1 ? 's' : ''})
 👥 Details: ${booking.rooms} Room(s) • ${booking.adults} Adult(s)${booking.children > 0 ? ` • ${booking.children} Child(ren)` : ''}
-💰 Total Amount: ${getCurrencySign()} ${getConvertedVal(booking.totalPrice)}
+💰 Total Amount: ${getCurrencySign() === 'US$' ? '$' : getCurrencySign()}${getConvertedVal(booking.totalPrice)}
 
 Thank you!`;
     return `https://wa.me/19134154907?text=${encodeURIComponent(message)}`;
@@ -276,7 +276,7 @@ Thank you!`;
                   <div className="flex justify-between pt-2 border-t font-extrabold text-sm text-booking-navy">
                     <span>Grand Total:</span>
                     <span className="text-booking-blue">
-                      {getCurrencySign()} {getConvertedVal(grandTotalUSD)}
+                      {getCurrencySign() === 'US$' ? '$' : getCurrencySign()} {getConvertedVal(grandTotalUSD)}
                     </span>
                   </div>
                 </div>
@@ -486,7 +486,7 @@ Thank you!`;
                 <div className="flex justify-between text-sm font-black text-booking-navy pt-1">
                   <span>Price paid:</span>
                   <span className="text-booking-blue text-base">
-                    {getCurrencySign()} {getConvertedVal(successBooking.totalPrice)}
+                    {getCurrencySign() === 'US$' ? '$' : getCurrencySign()} {getConvertedVal(successBooking.totalPrice)}
                   </span>
                 </div>
                 <p className="text-[10px] text-booking-muted text-right mt-0.5">Total room layout taxes & resort levy integrated</p>

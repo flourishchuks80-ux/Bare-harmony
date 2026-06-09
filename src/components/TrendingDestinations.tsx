@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import { ChevronRight } from 'lucide-react';
 
 interface Destination {
   id: string;
@@ -17,7 +16,7 @@ const TRENDING_DESTINATIONS: Destination[] = [
     cityOnly: 'Sydney',
     country: 'Australia',
     avgPriceUSD: 240,
-    image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80'
+    image: '/src/assets/images/park_hyatt_sydney_1781023936388.png'
   },
   {
     id: 'barcelona',
@@ -25,7 +24,7 @@ const TRENDING_DESTINATIONS: Destination[] = [
     cityOnly: 'Barcelona',
     country: 'Spain',
     avgPriceUSD: 200,
-    image: 'https://images.unsplash.com/photo-1583422409516-2895a77efedd?auto=format&fit=crop&w=800&q=80'
+    image: '/src/assets/images/w_barcelona_1781023902244.png'
   },
   {
     id: 'melbourne',
@@ -33,7 +32,7 @@ const TRENDING_DESTINATIONS: Destination[] = [
     cityOnly: 'Melbourne',
     country: 'Australia',
     avgPriceUSD: 180,
-    image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80'
+    image: '/src/assets/images/melbourne_hotel_1781024644113.png'
   },
   {
     id: 'madrid',
@@ -68,13 +67,6 @@ export default function TrendingDestinations({
     }
   };
 
-  const handleScrollRight = () => {
-    if (containerRef.current) {
-      const scrollAmount = 300;
-      containerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  };
-
   return (
     <section
       id="trending-destinations-section"
@@ -88,11 +80,10 @@ export default function TrendingDestinations({
         {/* Section Header */}
         <div 
           id="trending-header" 
-          className="flex flex-col mb-8 gap-1"
+          className="flex flex-col mb-6 gap-1"
         >
           <h2 
-            className="text-2xl font-extrabold text-booking-text tracking-tight uppercase text-xs"
-            style={{ letterSpacing: '0.05em' }}
+            className="text-[24px] font-bold text-[#1a1a1a] tracking-tight"
           >
             Trending boutique destinations
           </h2>
@@ -160,16 +151,6 @@ export default function TrendingDestinations({
               </div>
             ))}
           </div>
-
-          {/* Carousel Next Arrow */}
-          <button
-            onClick={handleScrollRight}
-            className="hidden lg:flex absolute -right-[16px] top-[calc(50%-20px)] w-[40px] h-[40px] rounded-full bg-white border border-[#E0E0E0] shadow-[0px_4px_12px_rgba(0,0,0,0.08)] items-center justify-center text-[#000000] hover:bg-slate-50 hover:text-booking-blue hover:border-booking-blue transition cursor-pointer z-10"
-            title="Next destinations"
-            aria-label="Next destinations"
-          >
-            <ChevronRight size={20} />
-          </button>
 
         </div>
 
