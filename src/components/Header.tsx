@@ -104,11 +104,11 @@ export default function Header({
           {/* User Profile Avatar */}
           <div className="flex items-center gap-2 text-sm ml-1 cursor-pointer hover:bg-white/5 py-1.5 px-2.5 rounded-md">
             <div className="w-8 h-8 rounded-full bg-emerald-600 border border-emerald-400 flex items-center justify-center text-white font-bold text-xs select-none">
-              ZH
+              LG
             </div>
             <div className="hidden lg:flex flex-col text-left">
-              <span className="text-xs font-semibold leading-tight">Zürich Guest</span>
-              <span className="text-[10px] text-emerald-300">Level 2 Level Geniuses</span>
+              <span className="text-xs font-semibold leading-tight">Loyal Guest</span>
+              <span className="text-[10px] text-emerald-300">Loyalty Member</span>
             </div>
           </div>
         </div>

@@ -17,6 +17,18 @@ interface BookingModalProps {
   onSaveBooking: (booking: Booking) => void;
 }
 
+const getCountryByCity = (city: string) => {
+  const c = city.toLowerCase();
+  if (['sydney', 'melbourne', 'brisbane', 'perth'].includes(c)) return 'Australia';
+  if (['barcelona', 'madrid', 'seville', 'ronda', 'san sebastian', 'mallorca'].includes(c)) return 'Spain';
+  if (['london'].includes(c)) return 'United Kingdom';
+  if (['paris'].includes(c)) return 'France';
+  if (['geneva', 'zürich', 'zurich'].includes(c)) return 'Switzerland';
+  if (['vienna'].includes(c)) return 'Austria';
+  if (['istanbul'].includes(c)) return 'Turkey';
+  return 'Europe';
+};
+
 export default function BookingModal({
   hotel,
   checkIn,
@@ -63,17 +75,18 @@ export default function BookingModal({
   };
 
   const getWhatsAppUrl = (booking: Booking) => {
+    const country = getCountryByCity(booking.hotelCity);
     const message = `Hello, I'd like to confirm my spot at the Bare-harmony Resort! Here are my reservation details:
 
 🏨 Resort: ${booking.hotelName}
-📍 Location: ${booking.hotelCity}, Switzerland
+📍 Location: ${booking.hotelCity}, ${country}
 🆔 Booking ID: ${booking.id}
 👤 Guest: ${booking.guestName}
 ✉️ Email: ${booking.guestEmail}
 🛌 Suite Option: ${booking.roomType}
 🗓️ Dates: ${booking.checkIn} to ${booking.checkOut} (${nights} Night${nights > 1 ? 's' : ''})
 👥 Details: ${booking.rooms} Room(s) • ${booking.adults} Adult(s)${booking.children > 0 ? ` • ${booking.children} Child(ren)` : ''}
-💰 Total Paid: ${getCurrencySign()} ${getConvertedVal(booking.totalPrice)}
+💰 Total Amount: ${getCurrencySign()} ${getConvertedVal(booking.totalPrice)}
 
 Thank you!`;
     return `https://wa.me/19134154907?text=${encodeURIComponent(message)}`;
@@ -192,7 +205,7 @@ Thank you!`;
 
               <span className="text-[11px] font-bold text-booking-blue uppercase tracking-wider">Your stay selection</span>
               <h4 className="text-base font-bold text-booking-navy leading-tight mt-1 mb-3">{hotel.name}</h4>
-              <p className="text-xs text-booking-muted mb-4">{hotel.city}, Switzerland</p>
+              <p className="text-xs text-booking-muted mb-4">{hotel.city}, {getCountryByCity(hotel.city)}</p>
 
               {/* Stay params outline */}
               <div className="space-y-3.5 border-t border-[#e7e7e7] pt-4 text-xs font-medium">
@@ -248,7 +261,7 @@ Thank you!`;
                   </div>
                   <div className="flex justify-between">
                     <span className="text-booking-muted font-normal flex items-center gap-0.5">
-                      Swiss VAT <span className="text-[10px] text-zinc-400 font-light">(8.1%)</span>:
+                      Local VAT & Tax <span className="text-[10px] text-zinc-400 font-light">(8.1%)</span>:
                     </span>
                     <span className="font-semibold text-gray-700">
                       {getCurrencySign()} {getConvertedVal(swissVAT)}
@@ -444,7 +457,7 @@ Thank you!`;
                 </div>
                 <div className="flex justify-between">
                   <span className="text-[#595959]">City Location:</span>
-                  <span className="font-semibold text-gray-800">{successBooking.hotelCity}, Switzerland</span>
+                  <span className="font-semibold text-gray-800">{successBooking.hotelCity}, {getCountryByCity(successBooking.hotelCity)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-[#595959]">Selected Suite:</span>

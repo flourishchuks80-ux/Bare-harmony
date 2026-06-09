@@ -41,7 +41,7 @@ export default function App() {
   const [showLastDeals, setShowLastDeals] = useState(true);
 
   // Search Variables
-  const [destination, setDestination] = useState('Zürich');
+  const [destination, setDestination] = useState('Sydney');
   const [checkIn, setCheckIn] = useState('2026-06-06');
   const [checkOut, setCheckOut] = useState('2026-06-12');
   const [adultsCount, setAdultsCount] = useState(2);
@@ -49,7 +49,7 @@ export default function App() {
   const [roomsCount, setRoomsCount] = useState(1);
 
   // Search Trigger Filtering State
-  const [activeSearchCity, setActiveSearchCity] = useState('Zürich');
+  const [activeSearchCity, setActiveSearchCity] = useState('Sydney');
 
   // Input Toggles
   const [showDestDropdown, setShowDestDropdown] = useState(false);
@@ -123,21 +123,21 @@ export default function App() {
     if (savedBookings) {
       setBookings(JSON.parse(savedBookings));
     } else {
-      // Pre-seed 1 upcoming booking in Zürich for high fidelity experience
+      // Pre-seed 1 upcoming booking in Sydney for high fidelity experience
       const seedBooking: Booking = {
-        id: 'BH-ZUR74D',
-        hotelId: 'sorell-boutique',
-        hotelName: 'Sorell Boutique-Hotel St Peter Zürich',
-        hotelImage: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80',
-        hotelCity: 'Zürich',
-        checkIn: '22026-06-21',
+        id: 'BH-SYD82B',
+        hotelId: 'park-hyatt-sydney',
+        hotelName: 'Park Hyatt Sydney',
+        hotelImage: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80',
+        hotelCity: 'Sydney',
+        checkIn: '2026-06-21',
         checkOut: '2026-06-25',
         adults: 2,
         children: 0,
         rooms: 1,
         roomType: 'Deluxe Executive Suite',
-        totalPrice: 2388.96,
-        guestName: 'Zürich Guest',
+        totalPrice: 2880.00,
+        guestName: 'Loyal Guest',
         guestEmail: 'flourishchuks80@gmail.com',
         createdAt: new Date().toISOString(),
         status: 'confirmed'
@@ -146,8 +146,8 @@ export default function App() {
       localStorage.setItem('bh_bookings', JSON.stringify([seedBooking]));
     }
 
-    // Pre-seed global search for initial Zurich view
-    fetchGlobalHotels('Zürich');
+    // Pre-seed global search for initial Sydney view
+    fetchGlobalHotels('Sydney');
   }, []);
 
   // Write changes to LocalStorage
@@ -326,7 +326,7 @@ export default function App() {
                   type="text"
                   value={destination}
                   onChange={(e) => setDestination(e.target.value)}
-                  placeholder="e.g. Zürich, Paris..."
+                  placeholder="e.g. Sydney, Barcelona..."
                   className="w-full text-sm font-bold text-[#1a1a1a] focus:outline-none bg-transparent"
                 />
               </div>
@@ -427,7 +427,7 @@ export default function App() {
           <div className="flex items-center gap-2">
             <span className="hover:text-booking-blue hover:underline cursor-pointer" onClick={() => { setActiveSearchCity(''); setDestination(''); }}>Home</span>
             <span className="text-gray-300">&gt;</span>
-            <span className="hover:text-booking-blue hover:underline cursor-pointer" onClick={() => { setActiveSearchCity('Zürich'); setDestination('Zürich'); }}>All hotels</span>
+            <span className="hover:text-booking-blue hover:underline cursor-pointer" onClick={() => { setActiveSearchCity(''); setDestination(''); }}>All hotels</span>
             {activeSearchCity && (
               <>
                 <span className="text-gray-300">&gt;</span>
@@ -660,14 +660,14 @@ export default function App() {
             </div>
           </div>
 
-          {/* Zurich Travel Guide mini widgets */}
+          {/* Spain & Australia Travel Guide mini widgets */}
           <div className="bg-[#059669]/5 border border-emerald-100 rounded-lg p-5 space-y-3">
             <h4 className="font-bold text-sm text-booking-navy flex items-center gap-2">
               <Compass size={16} className="text-booking-blue" />
-              <span>Zürich Boutique Guide</span>
+              <span>Spain & Australia Travel Guide</span>
             </h4>
             <p className="text-xs text-booking-muted leading-relaxed">
-              Zürich stays are renowned for historic bank conversions (like the spectacular wine library in <b>B2 Hotel</b>) and supreme proximity to pedestrian path networks. Book early to secure complimentary city bike rentals.
+              Experience the perfect blend of coastal elegance and historic richness. Stays in <b>Spain</b> offer historic palaces and beachside views, while <b>Australia</b> delivers waterfront harbor luxury and award-winning contemporary architecture.
             </p>
           </div>
         </aside>
@@ -829,10 +829,10 @@ export default function App() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-xs text-left">
             <div className="space-y-2.5">
               <span className="font-bold text-white uppercase text-[10px] tracking-wider block mb-2">Resorts & Cities</span>
-              <a href="#" className="hover:text-white block transition">Boutique Zürich</a>
-              <a href="#" className="hover:text-white block transition">Bespoke Geneva</a>
-              <a href="#" className="hover:text-white block transition">Heritage Paris</a>
-              <a href="#" className="hover:text-white block transition">Imperial Vienna</a>
+              <a href="#" className="hover:text-white block transition">Harbour Sydney</a>
+              <a href="#" className="hover:text-white block transition">Bespoke Barcelona</a>
+              <a href="#" className="hover:text-white block transition">Heritage Melbourne</a>
+              <a href="#" className="hover:text-white block transition">Imperial Madrid</a>
             </div>
             <div className="space-y-2.5">
               <span className="font-bold text-white uppercase text-[10px] tracking-wider block mb-2">Customer Care</span>
@@ -851,14 +851,14 @@ export default function App() {
                 </span>
               </div>
               <p className="text-[10px] text-emerald-200/70 leading-relaxed mt-1">
-                Combining high-tier contemporary boutique comfort with classic Swiss architectural heritage to deliver peaceful, safe experiences.
+                Combining high-tier contemporary boutique comfort with premium global architectural heritage to deliver peaceful, safe experiences.
               </p>
             </div>
           </div>
 
           {/* Bottom attribution and license footer */}
           <div className="border-t border-emerald-990/30 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-emerald-200">
-            <p>© 2026 Bare-harmony Booking Group S.A. Zürich. All rights reserved.</p>
+            <p>© 2026 Bare-harmony Booking Group S.A. All rights reserved.</p>
             <div className="flex gap-4 font-semibold text-emerald-100">
               <a href="#" className="hover:underline">Terms of Use</a>
               <a href="#" className="hover:underline">Privacy Policy</a>

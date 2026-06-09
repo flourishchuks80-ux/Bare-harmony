@@ -12,12 +12,12 @@ interface Destination {
 
 const TRENDING_DESTINATIONS: Destination[] = [
   {
-    id: 'paris',
-    title: 'Paris, France',
-    cityOnly: 'Paris',
-    country: 'France',
-    avgPriceUSD: 169,
-    image: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80'
+    id: 'sydney',
+    title: 'Sydney, Australia',
+    cityOnly: 'Sydney',
+    country: 'Australia',
+    avgPriceUSD: 240,
+    image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'barcelona',
@@ -28,20 +28,20 @@ const TRENDING_DESTINATIONS: Destination[] = [
     image: 'https://images.unsplash.com/photo-1583422409516-2895a77efedd?auto=format&fit=crop&w=800&q=80'
   },
   {
+    id: 'melbourne',
+    title: 'Melbourne, Australia',
+    cityOnly: 'Melbourne',
+    country: 'Australia',
+    avgPriceUSD: 180,
+    image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80'
+  },
+  {
     id: 'madrid',
     title: 'Madrid, Spain',
     cityOnly: 'Madrid',
     country: 'Spain',
     avgPriceUSD: 122,
     image: 'https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'istanbul',
-    title: 'Istanbul, Turkey',
-    cityOnly: 'Istanbul',
-    country: 'Turkey',
-    avgPriceUSD: 69,
-    image: 'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=800&q=80'
   }
 ];
 
@@ -78,9 +78,9 @@ export default function TrendingDestinations({
   return (
     <section
       id="trending-destinations-section"
-      className="w-full bg-white py-8 border-b border-[#e7e7e7]"
+      className="w-full bg-[#fbfbfb] py-12 border-b border-[#e7e7e7]"
       style={{
-        fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+        fontFamily: "var(--font-sans), system-ui, sans-serif"
       }}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
@@ -88,20 +88,18 @@ export default function TrendingDestinations({
         {/* Section Header */}
         <div 
           id="trending-header" 
-          className="flex flex-col mb-6"
-          style={{ gap: '4px' }}
+          className="flex flex-col mb-8 gap-1"
         >
           <h2 
-            className="text-[24px] font-bold text-[#000000] tracking-tight"
-            style={{ fontWeight: 700 }}
+            className="text-2xl font-extrabold text-booking-text tracking-tight uppercase text-xs"
+            style={{ letterSpacing: '0.05em' }}
           >
-            Trending hotel destinations
+            Trending boutique destinations
           </h2>
           <p 
-            className="text-[16px] text-[#595959]"
-            style={{ fontWeight: 400 }}
+            className="text-[14px] text-booking-muted"
           >
-            Explore destinations currently popular with other travelers
+            Explore carefully curated cities across Spain and Australia popular with travelers this season
           </p>
         </div>
 
@@ -110,19 +108,18 @@ export default function TrendingDestinations({
           
           <div
             ref={containerRef}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto scrollbar-none scroll-smooth py-1"
-            style={{ gap: '16px' }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 overflow-x-auto scrollbar-none scroll-smooth py-1"
           >
             {TRENDING_DESTINATIONS.map((dest) => (
               <div
                 key={dest.id}
                 onClick={() => onSelectDestination(dest.cityOnly)}
-                className="flex flex-col text-left cursor-pointer group transition-all"
-                style={{ gap: '4px' }}
+                className="flex flex-col text-left cursor-pointer group bg-white border border-[#e7e7e7] rounded-xl overflow-hidden shadow-xs hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 p-3"
+                style={{ gap: '8px' }}
               >
                 {/* Image wrapper */}
                 <div 
-                  className="overflow-hidden bg-slate-100 shrink-0"
+                  className="overflow-hidden bg-slate-100 shrink-0 relative"
                   style={{ 
                     aspectRatio: '16 / 10', 
                     borderRadius: '8px' 
@@ -132,31 +129,33 @@ export default function TrendingDestinations({
                     src={dest.image}
                     alt={dest.title}
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
+                  <div className="absolute top-2.5 right-2.5 bg-booking-navy/80 backdrop-blur-xs text-[10px] text-white font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                    {dest.country}
+                  </div>
                 </div>
 
                 {/* Info */}
-                <span 
-                  className="text-[16px] text-[#000000]"
-                  style={{ fontWeight: 700 }}
-                >
-                  {dest.title}
-                </span>
+                <div className="flex flex-col gap-0.5 px-1 py-1">
+                  <span 
+                    className="text-base font-bold text-booking-navy group-hover:text-booking-blue transition-colors duration-200"
+                  >
+                    {dest.title}
+                  </span>
 
-                <div className="flex flex-wrap items-baseline gap-1">
-                  <span 
-                    className="text-[14px] text-[#595959]"
-                    style={{ fontWeight: 400 }}
-                  >
-                    Avg. price per night for a 3-star hotel:
-                  </span>
-                  <span 
-                    className="text-[14px] text-[#595959]"
-                    style={{ fontWeight: 400 }}
-                  >
-                    {getConvertedPriceStr(dest.avgPriceUSD)}
-                  </span>
+                  <div className="flex items-baseline gap-1 mt-1 justify-between border-t border-gray-50 pt-1">
+                    <span 
+                      className="text-[11px] text-booking-muted uppercase tracking-wider font-semibold"
+                    >
+                      Boutique rate
+                    </span>
+                    <span 
+                      className="text-[13px] text-booking-blue font-extrabold"
+                    >
+                      {getConvertedPriceStr(dest.avgPriceUSD)}/nt
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -165,11 +164,11 @@ export default function TrendingDestinations({
           {/* Carousel Next Arrow */}
           <button
             onClick={handleScrollRight}
-            className="hidden lg:flex absolute -right-[20px] top-[calc(50%-20px)] w-[40px] h-[40px] rounded-full bg-white border border-[#E0E0E0] shadow-[0px_2px_8px_rgba(0,0,0,0.15)] items-center justify-center text-[#000000] hover:bg-slate-50 transition cursor-pointer z-10"
+            className="hidden lg:flex absolute -right-[16px] top-[calc(50%-20px)] w-[40px] h-[40px] rounded-full bg-white border border-[#E0E0E0] shadow-[0px_4px_12px_rgba(0,0,0,0.08)] items-center justify-center text-[#000000] hover:bg-slate-50 hover:text-booking-blue hover:border-booking-blue transition cursor-pointer z-10"
             title="Next destinations"
             aria-label="Next destinations"
           >
-            <ChevronRight size={20} className="text-[#000000]" />
+            <ChevronRight size={20} />
           </button>
 
         </div>

@@ -10,37 +10,37 @@ interface FaqItemData {
 
 const COLUMN_1_FAQS: FaqItemData[] = [
   {
-    id: 'cheap-hotels',
-    question: 'How do I find budget-friendly suites on Bare-harmony?',
-    answer: 'You can easily find budget-friendly options by sorting our hotel choices by "Price (lowest first)" or customizing our interactive filters such as the price-range slider. This helps you locked in the best possible rate matching your ideal spend.'
+    id: 'room-preferences',
+    question: 'How do I request specific suite preferences or dietary amenities?',
+    answer: 'You can specify room demands (such as high-floor preference, hypoallergenic linens, or baby cots) directly during checkout. If you have dietary rules, our concierge will coordinate directly with the resort\'s dining staff before your arrival.'
   },
   {
-    id: 'hotel-deals',
-    question: 'Where can I find special resort deals on Bare-harmony?',
-    answer: 'Our dedicated "Last minute hotels near you" section showcases highly discounted rates for upcoming weekend stays. You can also spot verified local promotions and early-bird rates featured across our curated Swiss destinations.'
+    id: 'flexible-cancellations',
+    question: 'How does the flexible cancellation policy work for premium resorts?',
+    answer: 'Most boutique resorts on Bare-harmony offer complimentary cancellation up to 48 hours prior to physical check-in. The precise cancellation window is clearly presented on your official digital stay voucher.'
   },
   {
-    id: 'listed-hotels',
-    question: 'How many hotel room listings are available on Bare-harmony?',
-    answer: "There are currently 21,936,990 hotel room listings on Bare-harmony, so you'll always be able to find the perfect hotel – wherever you're going!"
+    id: 'curated-selection',
+    question: 'How does Bare-harmony curate its portfolio of Spain & Australia hotels?',
+    answer: 'We hand-select only independent, high-grade architectural landmarks that combine supreme contemporary boutique comfort with classic local identity. Each property is audited for design superiority and wellness excellence.'
   }
 ];
 
 const COLUMN_2_FAQS: FaqItemData[] = [
   {
-    id: 'search-hotel',
+    id: 'booking-process',
     question: 'How do I search for and book a stay on Bare-harmony?',
-    answer: 'Simply use our main search companion: enter your destination city, set your stay dates using our custom calendar picker, modify guest counts, and view real-time suite availability. To confirm, process a high-fidelity card check-out.'
+    answer: 'Simply enter your destination city (e.g. Sydney, Barcelona, Madrid), select your dates using our custom calendar companion, and review real-time availability. Confirmation is instant, and your official stay voucher compiles immediately.'
   },
   {
-    id: 'last-minute',
-    question: 'How do I find cheap last-minute hotels on Bare-harmony?',
-    answer: 'Our highlighted weekend deals section is updated dynamically with properties offering vacant suites at discounted, eye-catching rates. Direct booking on Bare-harmony secures instant confirmation and easy confirmation slips.'
+    id: 'payment-currencies',
+    question: 'Can I pay for my reservation in multiple currencies?',
+    answer: 'Yes, our platform supports live conversions across multiple major global currencies (USD, EUR, AUD, GBP, CHF) directly within the user interface, ensuring pricing is clear and has no hidden conversion overheads.'
   },
   {
-    id: 'trust-reviews',
-    question: 'Why should I trust Bare-harmony\'s guest reviews?',
-    answer: 'All our reviews are verified for absolute authenticity. Guest feedback can only be submitted by travelers who have processed their reservations through Bare-harmony and completed their physical stay duration.'
+    id: 'voucher-delivery',
+    question: 'How will my official confirmation voucher be delivered?',
+    answer: 'Immediately upon processing, the web app presents a complete premium digital voucher. You can download this voucher, launch an instant WhatsApp direct sync with our booking desk, or export details to your digital calendar.'
   }
 ];
 

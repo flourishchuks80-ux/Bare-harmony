@@ -185,7 +185,7 @@ export default function CalendarPicker({ checkIn, checkOut, onChange, onClose }:
           onClick={() => onChange({ checkIn: '2026-06-06', checkOut: '2026-06-12' })}
           className="text-booking-blue font-bold hover:underline"
         >
-          Reset to default Zurich Stay
+          Reset to default Holiday Stay
         </button>
       </div>
     </div>

@@ -139,13 +139,13 @@ export function DestinationDropdown({ inputValue, cities, onSelect, onClose }: D
             <MapPin size={16} className="text-booking-blue shrink-0" />
             <div className="flex flex-col">
               <span className="font-semibold text-gray-800">{city}</span>
-              <span className="text-[10px] text-booking-muted">Switzerland & Major Europe Cities</span>
+              <span className="text-[10px] text-booking-muted">Global Boutique Cities</span>
             </div>
           </button>
         ))
       ) : (
         <div className="px-3 py-3 text-xs text-booking-muted text-center">
-          No matches found. Try Zürich, Paris or London.
+          No matches found. Try Sydney, Barcelona or London.
         </div>
       )}
     </div>

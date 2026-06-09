@@ -20,8 +20,8 @@ export default function LastMinuteDeals({
   const containerRef = useRef<HTMLDivElement>(null);
   const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
 
-  // Filtrate exactly the 4 deals hotels featured in the design
-  const featuredDealIds = ['sorell-boutique', 'st-josef', 'schweizerhof', 'aparthotel-familie'];
+  // Filtrate exactly the 4 deals hotels featured in the design (Spain & Australia)
+  const featuredDealIds = ['majestic-barcelona', 'calile-brisbane', 'onlyyou-madrid', 'park-hyatt-sydney'];
   const dealHotels = featuredDealIds
     .map(id => hotels.find(h => h.id === id))
     .filter((h): h is Hotel => h !== undefined);

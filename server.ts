@@ -136,6 +136,9 @@ function generateFallbackHotels(city: string): any[] {
   ];
 }
 
+// Simple in-memory cache to conserve Gemini API quota across different searches
+const hotelGenerationCache: Record<string, any[]> = {};
+
 // Full-scale Dynamic Gemini API Generation Search endpoint
 app.post("/api/hotels/generate", async (req, res) => {
   const { city } = req.body;
@@ -143,12 +146,20 @@ app.post("/api/hotels/generate", async (req, res) => {
     return res.status(400).json({ error: "City and destination argument is required." });
   }
 
+  const cacheKey = city.trim().toLowerCase();
+  if (hotelGenerationCache[cacheKey]) {
+    console.log(`[Cache Hit] Serving generated hotels for destination: ${city}`);
+    return res.json({ hotels: hotelGenerationCache[cacheKey] });
+  }
+
   console.log(`Processing hotel generation request for destination: ${city}`);
   const clientObj = getAiClient();
 
   if (!clientObj) {
     console.log("No valid GEMINI_API_KEY found or client is inactive. Returning verified real-world fallbacks.");
-    return res.json({ hotels: generateFallbackHotels(city) });
+    const fallback = generateFallbackHotels(city);
+    hotelGenerationCache[cacheKey] = fallback;
+    return res.json({ hotels: fallback });
   }
 
   try {
@@ -260,6 +271,8 @@ Each object in the returned JSON array must strictly match this structural schem
           };
         });
 
+        // Store generated result in cache
+        hotelGenerationCache[cacheKey] = enrichedHotels;
         return res.json({ hotels: enrichedHotels });
       }
     }
@@ -267,8 +280,12 @@ Each object in the returned JSON array must strictly match this structural schem
     throw new Error("Empty content output in Response");
 
   } catch (error) {
-    console.error("Error generating hotels using Gemini API, serving fallback data set instead: ", error);
-    return res.json({ hotels: generateFallbackHotels(city) });
+    // Graceously handle and log rate limits/errors without printing an alarming stack trace to standard streams
+    console.warn(`[Gemini API Status] Quota limit or other issue occurred during query for '${city}'. Serving curated offline fallback hotel data set.`);
+    const fallback = generateFallbackHotels(city);
+    // Cache the fallback to prevent subsequent triggers for this session
+    hotelGenerationCache[cacheKey] = fallback;
+    return res.json({ hotels: fallback });
   }
 });
 
