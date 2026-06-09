@@ -6,9 +6,9 @@
   --font-display: "Plus Jakarta Sans", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
   
-  --color-booking-blue: #006ce4;
-  --color-booking-yellow: #ffb700;
-  --color-booking-navy: #003580;
+  --color-booking-blue: #059669; /* Emerald 600 */
+  --color-booking-yellow: #ffb700; /* Stays Yellow as requested */
+  --color-booking-navy: #064e3b; /* Emerald 900 (Deep Pine Green) */
   --color-booking-text: #1a1a1a;
   --color-booking-muted: #595959;
   --color-booking-border: #e7e7e7;

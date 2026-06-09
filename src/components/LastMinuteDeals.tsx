@@ -69,7 +69,7 @@ export default function LastMinuteDeals({
           </h2>
           <button
             onClick={onSeeAllClick}
-            className="border border-[#006ce4] hover:bg-[#006ce4]/5 text-[#006ce4] font-medium text-[14px] px-4 py-2 transition duration-200 select-none cursor-pointer"
+            className="border border-booking-blue hover:bg-booking-blue/5 text-booking-blue font-medium text-[14px] px-4 py-2 transition duration-200 select-none cursor-pointer"
             style={{ borderRadius: '4px' }}
           >
             See all
@@ -89,7 +89,7 @@ export default function LastMinuteDeals({
                 <div
                   key={hotel.id}
                   onClick={() => onBook(hotel)}
-                  className="bg-white border border-[#e7e7e7] hover:border-[#006ce4]/30 hover:shadow-lg transition-all duration-300 flex flex-col cursor-pointer group rounded-lg overflow-hidden h-full min-h-[440px]"
+                  className="bg-white border border-[#e7e7e7] hover:border-booking-blue/30 hover:shadow-lg transition-all duration-300 flex flex-col cursor-pointer group rounded-lg overflow-hidden h-full min-h-[440px]"
                 >
                   {/* Card Image */}
                   <div className="relative w-full aspect-[4/3] overflow-hidden bg-slate-100 shrink-0">
@@ -113,7 +113,7 @@ export default function LastMinuteDeals({
                       
                       {/* Title & Location details */}
                       <div>
-                        <h3 className="text-[18px] font-bold text-[#1a1a1a] leading-tight group-hover:text-[#006ce4] transition-all">
+                        <h3 className="text-[18px] font-bold text-[#1a1a1a] leading-tight group-hover:text-booking-blue transition-all">
                           {hotel.name}
                         </h3>
                         <p className="text-[14px] text-[#595959] mt-0.5 font-normal">
@@ -124,7 +124,7 @@ export default function LastMinuteDeals({
                       {/* Rating block */}
                       <div className="flex items-center gap-2">
                         <span 
-                          className="bg-[#003580] text-white text-[12px] font-bold py-1 px-2 shrink-0 flex items-center justify-center select-none"
+                          className="bg-booking-navy text-white text-[12px] font-bold py-1 px-2 shrink-0 flex items-center justify-center select-none"
                           style={{ borderRadius: '4px 4px 4px 0px' }}
                         >
                           {hotel.rating.toFixed(1)}
@@ -146,7 +146,7 @@ export default function LastMinuteDeals({
                         </span>
                         <span
                           onClick={(e) => toggleExpand(hotel.id, e)}
-                          className="text-[#006ce4] hover:text-[#0052ad] font-medium text-[14px] mt-1 pl-1 hover:underline inline transition cursor-pointer"
+                          className="text-booking-blue hover:text-emerald-700 font-medium text-[14px] mt-1 pl-1 hover:underline inline transition cursor-pointer"
                         >
                           {isExpanded ? 'Show less' : 'Show more'}
                         </span>

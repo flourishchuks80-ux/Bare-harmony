@@ -76,7 +76,7 @@ export default function BookingModal({
 💰 Total Paid: ${getCurrencySign()} ${getConvertedVal(booking.totalPrice)}
 
 Thank you!`;
-    return `https://wa.me/?text=${encodeURIComponent(message)}`;
+    return `https://wa.me/19134154907?text=${encodeURIComponent(message)}`;
   };
 
   const handleCardNumberChange = (val: string) => {
@@ -177,7 +177,7 @@ Thank you!`;
           <>
             {/* BOOKING DETAILS ENTRY */}
             {/* Sidebar Overview Panel (Left) */}
-            <div className="w-full md:w-[320px] bg-sky-50/50 border-r border-[#e7e7e7] p-6 flex flex-col shrink-0">
+            <div className="w-full md:w-[320px] bg-emerald-50/10 border-r border-[#e7e7e7] p-6 flex flex-col shrink-0">
               <div className="relative rounded-lg overflow-hidden h-36 mb-4 shrink-0">
                 <img
                   src={hotel.images[0]}
@@ -185,7 +185,7 @@ Thank you!`;
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute top-2 left-2 bg-[#003580] text-white text-[11px] font-bold py-0.5 px-2 rounded-sm border border-blue-900 shadow-xs">
+                <div className="absolute top-2 left-2 bg-booking-navy text-white text-[11px] font-bold py-0.5 px-2 rounded-sm border border-emerald-950 shadow-xs">
                   ★ {hotel.stars} Stars
                 </div>
               </div>
@@ -228,7 +228,7 @@ Thank you!`;
 
               {/* Instant price ledger breakdown */}
               <div className="mt-auto pt-6 border-t border-dashed border-[#e7e7e7]">
-                <div className="bg-white/80 p-3 rounded-lg border border-sky-100/80 space-y-2 text-xs">
+                <div className="bg-white/80 p-3 rounded-lg border border-emerald-100/80 space-y-2 text-xs">
                   <span className="block font-bold text-booking-navy mb-1 text-center border-b pb-1">Price Summary</span>
                   <div className="flex justify-between">
                     <span className="text-booking-muted font-normal">Base Rate:</span>
@@ -294,8 +294,8 @@ Thank you!`;
                           onClick={() => setSelectedRoomIndex(idx)}
                           className={`border-2 rounded-lg p-3 cursor-pointer transition flex items-start gap-3 relative ${
                             isSelected
-                              ? 'border-booking-blue bg-blue-50/20'
-                              : 'border-[#e7e7e7] hover:border-blue-200 bg-white'
+                              ? 'border-booking-blue bg-emerald-50/20'
+                              : 'border-[#e7e7e7] hover:border-emerald-200 bg-white'
                           }`}
                         >
                           <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 mt-0.5 ${
@@ -382,7 +382,7 @@ Thank you!`;
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-booking-blue hover:bg-[#0052ad] text-white font-bold text-sm px-6 py-2.5 rounded transition shadow-sm active:scale-95 disabled:opacity-40 disabled:pointer-events-none flex items-center gap-2 cursor-pointer"
+                  className="bg-booking-blue hover:bg-[#047857] text-white font-bold text-sm px-6 py-2.5 rounded transition shadow-sm active:scale-95 disabled:opacity-40 disabled:pointer-events-none flex items-center gap-2 cursor-pointer"
                 >
                   {isSubmitting ? (
                     <>
@@ -428,7 +428,7 @@ Thank you!`;
               <div className="pb-3 flex justify-between items-center bg-slate-100/50 -m-5 px-5 py-3 mb-2 border-b">
                 <div>
                   <span className="font-mono text-xs font-bold text-gray-500 uppercase">OFFICIAL VOUCHER</span>
-                  <p className="font-extrabold text-sm text-[#003580] mt-0.5">Bare-harmony Resort</p>
+                  <p className="font-extrabold text-sm text-[#064e3b] mt-0.5">Bare-harmony Resort</p>
                 </div>
                 <div className="text-right">
                   <span className="font-bold block text-emerald-700">✓ CONFIRMED</span>
@@ -528,7 +528,7 @@ Thank you!`;
               <button
                 type="button"
                 onClick={onClose}
-                className="w-full sm:w-auto flex items-center justify-center bg-booking-blue hover:bg-[#0052ad] text-white px-6 py-2.5 text-xs font-bold rounded cursor-pointer transition select-none"
+                className="w-full sm:w-auto flex items-center justify-center bg-booking-blue hover:bg-[#047857] text-white px-6 py-2.5 text-xs font-bold rounded cursor-pointer transition select-none"
               >
                 <span>Back to Explorer</span>
               </button>

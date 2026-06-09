@@ -47,13 +47,13 @@ export default function MyBookingsView({
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 15 }}
-              className="absolute inset-0 bg-[#003580]/98 backdrop-blur-md flex flex-col justify-center items-center p-6 text-center text-white z-50"
+              className="absolute inset-0 bg-booking-navy/98 backdrop-blur-md flex flex-col justify-center items-center p-6 text-center text-white z-50"
             >
               <div className="bg-white/15 rounded-full p-4 mb-4 text-[#ffb700] ring-4 ring-[#ffb700]/30 animate-pulse">
                 <ShieldAlert size={36} />
               </div>
               <h4 className="text-xl font-bold text-white mb-2 font-display">Cancel Stay Reservation?</h4>
-              <p className="text-xs text-blue-100 leading-relaxed max-w-xs mb-6">
+              <p className="text-xs text-emerald-100 leading-relaxed max-w-xs mb-6">
                 Are you sure you want to cancel your high-end stay at:
                 <br />
                 <span className="font-extrabold text-[#ffb700] text-sm block mt-1.5 mb-1.5">
@@ -90,11 +90,11 @@ export default function MyBookingsView({
               <Calendar size={18} className="text-yellow-400" />
               <span>Your Stay Reservations</span>
             </h3>
-            <p className="text-[10px] text-blue-200 uppercase tracking-widest mt-0.5">Bare-harmony Secure Portal</p>
+            <p className="text-[10px] text-emerald-200 uppercase tracking-widest mt-0.5">Bare-harmony Secure Portal</p>
           </div>
           <button
             onClick={onClose}
-            className="text-blue-100 hover:text-white p-1.5 hover:bg-white/10 rounded-full transition cursor-pointer"
+            className="text-emerald-100 hover:text-white p-1.5 hover:bg-white/10 rounded-full transition cursor-pointer"
           >
             <X size={20} />
           </button>

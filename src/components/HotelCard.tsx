@@ -147,7 +147,7 @@ export default function HotelCard({
                 <p className="text-xs text-booking-muted">{hotel.reviewsCount.toLocaleString()} reviews</p>
               </div>
               <div
-                className="bg-[#003580] text-white font-extrabold text-[15px] w-[42px] h-[40px] flex items-center justify-center shadow-sm select-none shrink-0"
+                className="bg-booking-navy text-white font-extrabold text-[15px] w-[42px] h-[40px] flex items-center justify-center shadow-sm select-none shrink-0"
                 style={{ borderRadius: '4px 4px 4px 0px' }}
               >
                 {hotel.rating.toFixed(1)}
@@ -169,7 +169,7 @@ export default function HotelCard({
             </span>
             <button
               onClick={() => setIsDescExpanded(!isDescExpanded)}
-              className="text-booking-blue font-semibold hover:underline block mt-1 hover:text-blue-700 text-xs transition cursor-pointer inline-flex items-center gap-1"
+              className="text-booking-blue font-semibold hover:underline block mt-1 hover:text-emerald-700 text-xs transition cursor-pointer inline-flex items-center gap-1"
             >
               <span>{isDescExpanded ? 'Show less' : 'Show more'}</span>
             </button>
@@ -180,7 +180,7 @@ export default function HotelCard({
             {hotel.amenities.slice(0, 4).map((amenity) => (
               <span
                 key={amenity}
-                className="bg-[#f2f8ff] text-booking-blue font-medium text-[11px] px-2 py-1 rounded inline-flex items-center gap-1 border border-blue-50/50"
+                className="bg-[#f0fdf4] text-booking-blue font-medium text-[11px] px-2 py-1 rounded inline-flex items-center gap-1 border border-emerald-50/50"
               >
                 <Check size={11} className="text-emerald-500" strokeWidth={3} />
                 <span>{amenity}</span>
@@ -209,7 +209,7 @@ export default function HotelCard({
 
           <button
             onClick={() => onBook(hotel)}
-            className="bg-booking-blue hover:bg-[#0052ad] text-white font-bold text-sm px-5 py-2.5 rounded transition duration-200 shadow-sm active:scale-95 cursor-pointer flex items-center gap-1.5 select-none hover:shadow-md"
+            className="bg-booking-blue hover:bg-[#047857] text-white font-bold text-sm px-5 py-2.5 rounded transition duration-200 shadow-sm active:scale-95 cursor-pointer flex items-center gap-1.5 select-none hover:shadow-md"
             style={{ borderRadius: '4px' }}
           >
             <span>See availability</span>

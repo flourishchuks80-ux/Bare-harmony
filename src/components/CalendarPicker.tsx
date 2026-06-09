@@ -96,9 +96,9 @@ export default function CalendarPicker({ checkIn, checkOut, onChange, onClose }:
           <span>Select Dates</span>
         </span>
         <div className="flex items-center gap-3">
-          <div className="flex gap-1.5 bg-blue-50 px-2 py-0.5 rounded text-xs text-booking-navy font-semibold">
+          <div className="flex gap-1.5 bg-emerald-50 px-2 py-0.5 rounded text-xs text-booking-navy font-semibold">
             <span>In: {checkIn ? formatDateStrLabel(checkIn) : '—'}</span>
-            <span className="text-blue-300">|</span>
+            <span className="text-emerald-300">|</span>
             <span>Out: {checkOut ? formatDateStrLabel(checkOut) : '—'}</span>
           </div>
           {onClose && (
@@ -161,7 +161,7 @@ export default function CalendarPicker({ checkIn, checkOut, onChange, onClose }:
           } else if (isSelectedOut) {
             dayClass += 'bg-booking-blue text-white font-bold rounded-r-md rounded-l-none';
           } else if (isMiddle) {
-            dayClass += 'bg-blue-50 text-booking-navy font-semibold rounded-none hover:bg-blue-100';
+            dayClass += 'bg-emerald-50 text-booking-navy font-semibold rounded-none hover:bg-emerald-100';
           } else {
             dayClass += 'text-gray-700 hover:bg-gray-100';
           }

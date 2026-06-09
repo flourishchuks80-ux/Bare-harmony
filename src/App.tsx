@@ -59,6 +59,7 @@ export default function App() {
   // Side/Filter sheets toggles
   const [showStaysDrawer, setShowStaysDrawer] = useState(false);
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
+  const [showMobileFilters, setShowMobileFilters] = useState(false);
 
   // Active Booking Target
   const [bookingTargetHotel, setBookingTargetHotel] = useState<Hotel | null>(null);
@@ -286,7 +287,7 @@ export default function App() {
         className="relative bg-[url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center py-16 md:py-24 px-4 shadow-inner"
       >
         {/* Exact Dark Blue translucent overlay matching design token overlay_color: rgba(0, 53, 128, 0.7) */}
-        <div className="absolute inset-0 bg-[#003580]/75 mix-blend-multiply pointer-events-none" />
+        <div className="absolute inset-0 bg-booking-navy/75 mix-blend-multiply pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative z-10 text-white flex flex-col gap-6">
           <div className="max-w-2xl text-left">
@@ -301,7 +302,7 @@ export default function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.15 }}
-              className="text-sm md:text-lg text-blue-100 font-medium tracking-wide mt-2 leading-relaxed"
+              className="text-sm md:text-lg text-emerald-100 font-medium tracking-wide mt-2 leading-relaxed"
             >
               From budget hotels to luxury rooms and everything in between
             </motion.p>
@@ -411,7 +412,7 @@ export default function App() {
             {/* Action Search button */}
             <button
               type="submit"
-              className="bg-[#006ce4] hover:bg-[#0052ad] text-white font-extrabold text-[16px] px-8 py-3.5 rounded transition shadow-md hover:shadow-lg active:scale-95 cursor-pointer shrink-0 uppercase tracking-wider"
+              className="bg-booking-blue hover:bg-[#047857] text-white font-extrabold text-[16px] px-8 py-3.5 rounded transition shadow-md hover:shadow-lg active:scale-95 cursor-pointer shrink-0 uppercase tracking-wider"
               style={{ borderRadius: '4px' }}
             >
               Search
@@ -469,8 +470,29 @@ export default function App() {
       {/* Main Container Layout */}
       <main id="discover-hotels-block" className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8 flex-1 grid grid-cols-1 lg:grid-cols-4 gap-8">
         
+        {/* Mobile Filter Toggle Button */}
+        <div className="lg:hidden col-span-1">
+          <button
+            type="button"
+            onClick={() => setShowMobileFilters(!showMobileFilters)}
+            className="w-full flex items-center justify-between bg-white border border-gray-300 rounded-lg py-3 px-4 text-[#1a1a1a] font-bold shadow-sm text-xs hover:bg-slate-50 transition cursor-pointer"
+          >
+            <span className="flex items-center gap-2">
+              <SlidersHorizontal size={14} className="text-booking-blue" />
+              <span>{showMobileFilters ? "Hide Search Filters" : "Filter & Sort Stays..."}</span>
+            </span>
+            {(filterStars.length > 0 || filterRatings.length > 0 || maxPrice < 1000 || selectedAmenities.length > 0 || showFavoritesOnly) ? (
+              <span className="bg-booking-blue text-white text-[10px] px-2 py-0.5 rounded-full font-bold ml-1">
+                Active
+              </span>
+            ) : (
+              <ChevronDown size={14} className={`text-gray-400 transition-transform ${showMobileFilters ? 'rotate-185' : ''}`} />
+            )}
+          </button>
+        </div>
+
         {/* SIDEBAR FILTERS (Column 1) */}
-        <aside className="lg:col-span-1 space-y-5">
+        <aside className={`${showMobileFilters ? 'block' : 'hidden'} lg:block lg:col-span-1 space-y-5`}>
           <div className="bg-white border border-[#e7e7e7] rounded-lg p-5 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
             <div className="flex items-center justify-between mb-4 border-b pb-3">
               <h3 className="font-bold text-[15px] flex items-center gap-1.5 text-booking-navy">
@@ -511,7 +533,7 @@ export default function App() {
                 <label className="text-xs font-bold text-[#1a1a1a] uppercase tracking-wider block mb-2">Weekend Deals</label>
                 <button
                   onClick={() => setShowLastDeals(true)}
-                  className="w-full flex items-center justify-center gap-1.5 text-xs px-3 py-2.5 rounded-md border border-[#006ce4] hover:bg-blue-50/50 text-[#006ce4] font-bold transition"
+                  className="w-full flex items-center justify-center gap-1.5 text-xs px-3 py-2.5 rounded-md border border-booking-blue hover:bg-emerald-50/50 text-booking-blue font-bold transition"
                 >
                   <Sparkles size={13} className="animate-spin text-amber-500" />
                   <span>Restore Deals Section</span>
@@ -536,7 +558,7 @@ export default function App() {
               />
               <div className="flex justify-between text-xs font-mono font-bold text-gray-700">
                 <span>US$350</span>
-                <span className="text-booking-blue bg-blue-50 px-2 py-0.5 rounded">Under US${maxPrice}</span>
+                <span className="text-booking-blue bg-emerald-50 px-2 py-0.5 rounded">Under US${maxPrice}</span>
                 <span>US$1000+</span>
               </div>
             </div>
@@ -548,7 +570,7 @@ export default function App() {
                 {[3, 4, 5].map((starCount) => {
                   const isChecked = filterStars.includes(starCount);
                   return (
-                    <label key={starCount} className="flex items-center justify-between hover:bg-sky-50/20 p-1 rounded cursor-pointer group">
+                    <label key={starCount} className="flex items-center justify-between hover:bg-emerald-50/20 p-1 rounded cursor-pointer group">
                       <div className="flex items-center gap-2">
                         <input
                           type="checkbox"
@@ -588,7 +610,7 @@ export default function App() {
                 ].map((th) => {
                   const isChecked = filterRatings.includes(th.val);
                   return (
-                    <label key={th.val} className="flex items-center justify-between hover:bg-sky-50/20 p-1 rounded cursor-pointer group">
+                    <label key={th.val} className="flex items-center justify-between hover:bg-emerald-50/20 p-1 rounded cursor-pointer group">
                       <div className="flex items-center gap-2">
                         <input
                           type="checkbox"
@@ -617,7 +639,7 @@ export default function App() {
                 {allAmenities.map((amenity) => {
                   const isChecked = selectedAmenities.includes(amenity);
                   return (
-                    <label key={amenity} className="flex items-center gap-2 hover:bg-sky-50/20 p-1 rounded cursor-pointer">
+                    <label key={amenity} className="flex items-center gap-2 hover:bg-emerald-50/20 p-1 rounded cursor-pointer">
                       <input
                         type="checkbox"
                         checked={isChecked}
@@ -639,7 +661,7 @@ export default function App() {
           </div>
 
           {/* Zurich Travel Guide mini widgets */}
-          <div className="bg-[#003580]/5 border border-sky-100 rounded-lg p-5 space-y-3">
+          <div className="bg-[#059669]/5 border border-emerald-100 rounded-lg p-5 space-y-3">
             <h4 className="font-bold text-sm text-booking-navy flex items-center gap-2">
               <Compass size={16} className="text-booking-blue" />
               <span>Zürich Boutique Guide</span>
@@ -705,7 +727,7 @@ export default function App() {
                     setDestination('');
                     setDynamicHotels([]);
                   }}
-                  className="bg-sky-50 text-booking-blue hover:bg-booking-blue hover:text-white border border-blue-100 font-bold px-3 py-1.5 rounded transition shadow-2xs"
+                  className="bg-emerald-50 text-booking-blue hover:bg-booking-blue hover:text-white border border-emerald-100 font-bold px-3 py-1.5 rounded transition shadow-2xs"
                   aria-label="See all hotels"
                 >
                   See all
@@ -738,8 +760,8 @@ export default function App() {
 
           {/* Dynamic generated status warning if present */}
           {generationError && (
-            <div className="bg-sky-50 text-sky-950 border border-sky-100 p-3 rounded-lg text-xs flex items-center gap-1.5">
-              <Info size={14} className="text-[#006ce4] shrink-0" />
+            <div className="bg-emerald-50 text-emerald-950 border border-emerald-100 p-3 rounded-lg text-xs flex items-center gap-1.5">
+              <Info size={14} className="text-booking-blue shrink-0" />
               <span>{generationError} Search and real-time booking remains operational.</span>
             </div>
           )}
@@ -752,10 +774,10 @@ export default function App() {
                 <div className="space-y-1.5">
                   <h4 className="font-extrabold text-base text-[#1a1a1a] tracking-tight">Accessing the Bare-harmony hotel listings database...</h4>
                   <p className="text-xs text-[#595959] max-w-sm mx-auto leading-relaxed">
-                    Analyzing real-time rates, mapping amenities and generating high-fidelity suites in <span className="text-[#006ce4] font-bold">{activeSearchCity}</span>. Just a few seconds...
+                    Analyzing real-time rates, mapping amenities and generating high-fidelity suites in <span className="text-booking-blue font-bold">{activeSearchCity}</span>. Just a few seconds...
                   </p>
                 </div>
-                <div className="inline-flex items-center gap-2 bg-[#003580]/5 px-3 py-1.5 rounded-full border border-sky-100 text-[11.5px] text-booking-blue font-bold">
+                <div className="inline-flex items-center gap-2 bg-[#059669]/5 px-3 py-1.5 rounded-full border border-emerald-100 text-[11.5px] text-booking-blue font-bold">
                   <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
                   Gemini smart indexing is live
                 </div>
@@ -786,7 +808,7 @@ export default function App() {
                 </div>
                 <button
                   onClick={handleResetFilters}
-                  className="bg-booking-blue hover:bg-[#0052ad] text-white text-xs font-bold px-4 py-2 rounded transition cursor-pointer"
+                  className="bg-booking-blue hover:bg-[#047857] text-white text-xs font-bold px-4 py-2 rounded transition cursor-pointer"
                 >
                   Reset All Search Filters
                 </button>
@@ -800,24 +822,17 @@ export default function App() {
       <BookingFaq />
 
       {/* FOOTER */}
-      <footer className="bg-[#003580] text-gray-300 py-10 mt-16 border-t border-sky-900/40">
+      <footer className="bg-booking-navy text-gray-300 py-10 mt-16 border-t border-emerald-900/40">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 space-y-8">
           
           {/* Main layout links grids */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-xs text-left">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-xs text-left">
             <div className="space-y-2.5">
               <span className="font-bold text-white uppercase text-[10px] tracking-wider block mb-2">Resorts & Cities</span>
               <a href="#" className="hover:text-white block transition">Boutique Zürich</a>
               <a href="#" className="hover:text-white block transition">Bespoke Geneva</a>
               <a href="#" className="hover:text-white block transition">Heritage Paris</a>
               <a href="#" className="hover:text-white block transition">Imperial Vienna</a>
-            </div>
-            <div className="space-y-2.5">
-              <span className="font-bold text-white uppercase text-[10px] tracking-wider block mb-2">Bare-harmony Club</span>
-              <a href="#" className="hover:text-white block transition">Loyalty Level Rewards</a>
-              <a href="#" className="hover:text-white block transition">Write Resort Reviews</a>
-              <a href="#" className="hover:text-white block transition">Sustainable Travel Badges</a>
-              <a href="#" className="hover:text-white block transition">Swiss Business Lounges</a>
             </div>
             <div className="space-y-2.5">
               <span className="font-bold text-white uppercase text-[10px] tracking-wider block mb-2">Customer Care</span>
@@ -831,20 +846,20 @@ export default function App() {
                 <span className="font-display font-black text-lg tracking-tight text-white flex items-center gap-1">
                   <span className="text-[#ffb700] font-light">Bare</span>
                 </span>
-                <span className="bg-[#ffb700] text-[#003580] font-black text-[8px] px-1 rounded uppercase tracking-wider">
+                <span className="bg-[#ffb700] text-booking-navy font-black text-[10px] px-1 rounded uppercase tracking-wider">
                   Harmony
                 </span>
               </div>
-              <p className="text-[10px] text-blue-200/70 leading-relaxed mt-1">
+              <p className="text-[10px] text-emerald-200/70 leading-relaxed mt-1">
                 Combining high-tier contemporary boutique comfort with classic Swiss architectural heritage to deliver peaceful, safe experiences.
               </p>
             </div>
           </div>
 
           {/* Bottom attribution and license footer */}
-          <div className="border-t border-blue-900/60 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-blue-200">
+          <div className="border-t border-emerald-990/30 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-emerald-200">
             <p>© 2026 Bare-harmony Booking Group S.A. Zürich. All rights reserved.</p>
-            <div className="flex gap-4 font-semibold text-blue-100">
+            <div className="flex gap-4 font-semibold text-emerald-100">
               <a href="#" className="hover:underline">Terms of Use</a>
               <a href="#" className="hover:underline">Privacy Policy</a>
               <a href="#" className="hover:underline">VAT Invoices</a>

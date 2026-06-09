@@ -83,7 +83,7 @@ export default function BookingFaq() {
                 </span>
                 <ChevronDown 
                   size={20} 
-                  className={`text-[#4A4A4A] transition-transform duration-300 shrink-0 ${isOpen ? 'rotate-180 text-[#006ce4]' : ''}`}
+                  className={`text-[#4A4A4A] transition-transform duration-300 shrink-0 ${isOpen ? 'rotate-180 text-booking-blue' : ''}`}
                 />
               </button>
 

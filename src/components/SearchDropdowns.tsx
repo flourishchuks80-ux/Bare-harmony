@@ -37,7 +37,7 @@ export function GuestsDropdown({ adults, childrenCount, rooms, onChange, onClose
               type="button"
               disabled={adults <= 1}
               onClick={() => onChange('adults', adults - 1)}
-              className="w-8 h-8 rounded-full border flex items-center justify-center text-booking-blue border-booking-blue hover:bg-blue-50 transition font-bold disabled:opacity-30 disabled:pointer-events-none"
+              className="w-8 h-8 rounded-full border flex items-center justify-center text-booking-blue border-booking-blue hover:bg-emerald-50 transition font-bold disabled:opacity-30 disabled:pointer-events-none"
             >
               <Minus size={14} />
             </button>
@@ -45,7 +45,7 @@ export function GuestsDropdown({ adults, childrenCount, rooms, onChange, onClose
             <button
               type="button"
               onClick={() => onChange('adults', adults + 1)}
-              className="w-8 h-8 rounded-full border flex items-center justify-center text-booking-blue border-booking-blue hover:bg-blue-50 transition font-bold"
+              className="w-8 h-8 rounded-full border flex items-center justify-center text-booking-blue border-booking-blue hover:bg-emerald-50 transition font-bold"
             >
               <Plus size={14} />
             </button>
@@ -63,7 +63,7 @@ export function GuestsDropdown({ adults, childrenCount, rooms, onChange, onClose
               type="button"
               disabled={childrenCount <= 0}
               onClick={() => onChange('childrenCount', childrenCount - 1)}
-              className="w-8 h-8 rounded-full border flex items-center justify-center text-booking-blue border-booking-blue hover:bg-blue-50 transition font-bold disabled:opacity-30 disabled:pointer-events-none"
+              className="w-8 h-8 rounded-full border flex items-center justify-center text-booking-blue border-booking-blue hover:bg-emerald-50 transition font-bold disabled:opacity-30 disabled:pointer-events-none"
             >
               <Minus size={14} />
             </button>
@@ -71,7 +71,7 @@ export function GuestsDropdown({ adults, childrenCount, rooms, onChange, onClose
             <button
               type="button"
               onClick={() => onChange('childrenCount', childrenCount + 1)}
-              className="w-8 h-8 rounded-full border flex items-center justify-center text-booking-blue border-booking-blue hover:bg-blue-50 transition font-bold"
+              className="w-8 h-8 rounded-full border flex items-center justify-center text-booking-blue border-booking-blue hover:bg-emerald-50 transition font-bold"
             >
               <Plus size={14} />
             </button>
@@ -89,7 +89,7 @@ export function GuestsDropdown({ adults, childrenCount, rooms, onChange, onClose
               type="button"
               disabled={rooms <= 1}
               onClick={() => onChange('rooms', rooms - 1)}
-              className="w-8 h-8 rounded-full border flex items-center justify-center text-booking-blue border-booking-blue hover:bg-blue-50 transition font-bold disabled:opacity-30 disabled:pointer-events-none"
+              className="w-8 h-8 rounded-full border flex items-center justify-center text-booking-blue border-booking-blue hover:bg-emerald-50 transition font-bold disabled:opacity-30 disabled:pointer-events-none"
             >
               <Minus size={14} />
             </button>
@@ -97,7 +97,7 @@ export function GuestsDropdown({ adults, childrenCount, rooms, onChange, onClose
             <button
               type="button"
               onClick={() => onChange('rooms', rooms + 1)}
-              className="w-8 h-8 rounded-full border flex items-center justify-center text-booking-blue border-booking-blue hover:bg-blue-50 transition font-bold"
+              className="w-8 h-8 rounded-full border flex items-center justify-center text-booking-blue border-booking-blue hover:bg-emerald-50 transition font-bold"
             >
               <Plus size={14} />
             </button>
@@ -134,7 +134,7 @@ export function DestinationDropdown({ inputValue, cities, onSelect, onClose }: D
               onSelect(city);
               onClose();
             }}
-            className="w-full text-left px-3 py-2 hover:bg-blue-50/80 flex items-center gap-2.5 transition"
+            className="w-full text-left px-3 py-2 hover:bg-emerald-50/80 flex items-center gap-2.5 transition"
           >
             <MapPin size={16} className="text-booking-blue shrink-0" />
             <div className="flex flex-col">
